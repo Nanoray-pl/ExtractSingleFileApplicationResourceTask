@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="16.0">
+  <PropertyGroup>
+    <RootNamespace>Nanoray.ExtractSingleFileApplicationResourceTask</RootNamespace>
+    <Version>0.1.1</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>11.0</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>Nullable</WarningsAsErrors>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Nanoray.ExtractSingleFileApplicationResourceTask</PackageId>
+    <Company>Nanoray</Company>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Nanoray-pl/ExtractSingleFileApplicationResourceTask</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Nanoray-pl/ExtractSingleFileApplicationResourceTask</PackageProjectUrl>
+    <PackageTags>single-file-application</PackageTags>
+    <Authors>Nanoray</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>Extracts resources from single-file applications as an MSBuild task.</Description>
+    <Copyright>Nanoray</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.10" CopyLocal="false" Publish="false" ExcludeAssets="runtime" />
+    <PackageReference Include="SingleFileExtractor.Core" Version="2.2.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="..\README.md" Pack="True" PackagePath="\" />
+    <None Include="..\LICENSE" Pack="True" PackagePath="\" />
+    <None PackagePath="build\$(PackageId).dll" Include="$(OutputPath)\$(AssemblyName).dll" Pack="True" Visible="True" />
+    <None PackagePath="build\SingleFileExtractor.Core.dll" Include="$(OutputPath)\SingleFileExtractor.Core.dll" Pack="True" Visible="True" />
+    <None PackagePath="build\$(PackageId).targets" Include="build\package.targets" Pack="True" />
+  </ItemGroup>
+</Project>

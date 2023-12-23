@@ -1,0 +1,3 @@
+<Project>
+  <UsingTask TaskName="ExtractSingleFileApplicationResourceTask" AssemblyFile="Nanoray.ExtractSingleFileApplicationResourceTask.dll" />
+</Project>
